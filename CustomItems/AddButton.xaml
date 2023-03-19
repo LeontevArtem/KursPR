@@ -1,35 +1,14 @@
-﻿<UserControl x:Class="CarRent.InfoItems.RentItem"
+﻿<UserControl x:Class="CarRent.CustomItems.AddButton"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CarRent.InfoItems"
-             mc:Ignorable="d" >
-    <Grid>
-        <Border Background="white" x:Name="parrent" MouseDown="parrent_MouseDown" CornerRadius="15" Margin="20,10,20,10" Height="200" RenderTransformOrigin="0.5 0.5" >
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="10" ShadowDepth="0" Color="Black"/>
-            </Border.Effect>
-            <Grid  Margin="0,0,0,0" >
-                <Border CornerRadius="10" Background="#E3E3E3" Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="150">
-                    <Image x:Name="CarImage" Margin="0,0,0,0" Source="/Images/car2.jpg"  MaxHeight="150" MaxWidth="150">
-                        <Image.OpacityMask>
-                            <ImageBrush ImageSource="/Images/car2.jpg"/>
-                        </Image.OpacityMask>
-                    </Image>
-                </Border>
-                <Border CornerRadius="10" Background="#E3E3E3" Margin="180,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="150">
-                    <Image x:Name="UserImage" Margin="0,0,0,0" Source="/Images/user.png"  MaxHeight="150" MaxWidth="150">
-                        <Image.OpacityMask>
-                            <ImageBrush ImageSource="/Images/user.png"/>
-                        </Image.OpacityMask>
-                    </Image>
-                </Border>
-                <Label x:Name="Car" Content="Car"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="340,20,0,0" FontSize="18" FontWeight="Bold"/>
-                <Label x:Name="User" Content="User" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="340,50,0,0" FontSize="18" FontWeight="Bold"/>
-                <Label x:Name="Date" Content="Date" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="340,80,0,0" FontSize="18" FontWeight="Bold"/>
-                <!--<Label x:Name="" Content="CarStatus" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="340,110,0,0" FontSize="18" FontWeight="Bold"/>-->
-            </Grid>
+             xmlns:local="clr-namespace:CarRent.CustomItems"
+             mc:Ignorable="d" 
+             >
+    <Grid >
+        <Border Background="White" CornerRadius="10 "  RenderTransformOrigin="0.5 0.5" x:Name="Add" Height="40" Margin="20,10,20,10">
+            <Image Source="/Images/plus.png" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
             <Border.RenderTransform>
                 <ScaleTransform ScaleX="1" ScaleY="1"/>
             </Border.RenderTransform>
@@ -43,6 +22,38 @@
                                 </DoubleAnimation.EasingFunction>
                             </DoubleAnimation>
                             <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1.02" Duration="0:0:.4">
+                                <DoubleAnimation.EasingFunction>
+                                    <QuarticEase />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger  RoutedEvent="MouseDown" >
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="0.95" Duration="0:0:.4">
+                                <DoubleAnimation.EasingFunction>
+                                    <QuarticEase />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="0.95" Duration="0:0:.4">
+                                <DoubleAnimation.EasingFunction>
+                                    <QuarticEase />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger  RoutedEvent="MouseUp" >
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1.0" Duration="0:0:.4">
+                                <DoubleAnimation.EasingFunction>
+                                    <QuarticEase />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1.0" Duration="0:0:.4">
                                 <DoubleAnimation.EasingFunction>
                                     <QuarticEase />
                                 </DoubleAnimation.EasingFunction>
@@ -68,5 +79,6 @@
                 </EventTrigger>
             </Border.Triggers>
         </Border>
+        
     </Grid>
 </UserControl>

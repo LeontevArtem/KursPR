@@ -16,7 +16,32 @@
             <Label Content="Информация о машине" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold" Margin="140,0,0,0"/>
         </Grid>
         <Grid Margin="0,40,0,0" x:Name="parrent">
-            <Frame x:Name="MainPageFrame"/>
+            <Border Background="White" CornerRadius="10" Margin="230,15,15,15">
+                <Grid>
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+                        <StackPanel>
+                            <Grid x:Name="parrent2">
+                                <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Марка машины:" Margin="10,10,0,0" FontSize="16" FontWeight="Bold"/>
+                                <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Модель машины:" Margin="10,50,0,0" FontSize="16" FontWeight="Bold"/>
+                                <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Цвет машины:" Margin="10,90,0,0" FontSize="16" FontWeight="Bold"/>
+                                <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Год презентации:" Margin="10,130,0,0" FontSize="16" FontWeight="Bold"/>
+                                <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Подробная информация:" Margin="10,170,0,0" FontSize="16" FontWeight="Bold"/>
+                                <ScrollViewer VerticalAlignment="Top" Height="100" Margin="10,210,10,0" VerticalScrollBarVisibility="Auto">
+                                    <StackPanel>
+                                        <Grid>
+                                            <TextBlock x:Name="CarDescription"  Text="Подробная информация"   FontSize="16" TextWrapping="Wrap"/>
+                                        </Grid>
+                                        
+                                    </StackPanel>
+                                    
+                                </ScrollViewer>
+                                
+                            </Grid>
+                        </StackPanel>
+                    </ScrollViewer>
+                    
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </Page>

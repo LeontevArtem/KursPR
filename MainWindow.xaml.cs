@@ -79,7 +79,7 @@ namespace CarRent
             };
             mainWindow.frame.BeginAnimation(Frame.OpacityProperty, opgrid);
         }
-        public static BitmapImage Base64StringToBitMap(string base64String)
+        public static BitmapImage Base64StringToBitMap(MainWindow mainWindow,string base64String)
         {
             //Работа с Изображениями, сохраненными в виде массива битов prod. by Sanya Galanov
             try
@@ -97,7 +97,7 @@ namespace CarRent
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Ошибка (Загрузка изображения из БД)", MessageBoxButton.OK, MessageBoxImage.Error);
+                mainWindow.Errors.Add(new Classes.ErrorMessage(DateTime.Now, ex, "Загрузка изображений из БД"));
                 return null;
             }
 #pragma warning disable CS0162 // Обнаружен недостижимый код

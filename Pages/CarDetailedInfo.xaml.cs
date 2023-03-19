@@ -22,7 +22,11 @@ namespace CarRent.Pages
     {
         public MainWindow mainWindow;
         public Page parrentPage;
-        public CarDetailedInfo(MainWindow mainWindow,Page parrentPage)
+        WpfControlLibrary1.BeautifulTextBox CarManufacturer = new WpfControlLibrary1.BeautifulTextBox("Производитель");
+        WpfControlLibrary1.BeautifulTextBox CarModel = new WpfControlLibrary1.BeautifulTextBox("Марка");
+        WpfControlLibrary1.BeautifulTextBox CarColor = new WpfControlLibrary1.BeautifulTextBox("Цвет");
+        WpfControlLibrary1.BeautifulTextBox CarPresentationYear = new WpfControlLibrary1.BeautifulTextBox("Год презентации");
+        public CarDetailedInfo(MainWindow mainWindow,Page parrentPage,Classes.Car curCar = null)
         {
             
             InitializeComponent();
@@ -45,6 +49,44 @@ namespace CarRent.Pages
             GoToMain.SetFontSize(12);
             GoToMain.MouseDown += GoToMainClick;
             top.Children.Add(GoToMain);
+
+            WpfControlLibrary1.ImageBrowser Image = new WpfControlLibrary1.ImageBrowser();
+            Image.VerticalAlignment= VerticalAlignment.Top;
+            Image.HorizontalAlignment = HorizontalAlignment.Left;
+            Image.Margin = new Thickness(15,15,0,0);
+            Image.Width = 200;
+            Image.Height = 250;
+            parrent.Children.Add(Image);
+            //Image.HideButton();
+
+            CarManufacturer.VerticalAlignment= VerticalAlignment.Top;
+            CarManufacturer.Margin = new Thickness(160,10,10,0);
+            parrent2.Children.Add(CarManufacturer);
+
+            CarModel.VerticalAlignment = VerticalAlignment.Top;
+            CarModel.Margin = new Thickness(160, 50, 10, 0);
+            parrent2.Children.Add(CarModel);
+
+            CarColor.VerticalAlignment = VerticalAlignment.Top;
+            CarColor.Margin = new Thickness(160, 90, 10, 0);
+            parrent2.Children.Add(CarColor);
+
+            CarPresentationYear.VerticalAlignment = VerticalAlignment.Top;
+            CarPresentationYear.Margin = new Thickness(160, 130, 10, 0);
+            parrent2.Children.Add(CarPresentationYear);
+
+
+
+
+            if (curCar != null)
+            {
+                CarManufacturer.SetText(curCar.CarManufacturer);
+                CarModel.SetText(curCar.CarModel);
+                CarColor.SetText(curCar.CarColor);
+                CarPresentationYear.SetText(curCar.CarPresentationYear.ToString());
+                CarDescription.Text = curCar.CarDetailedInfo;
+                Image.SetImage(curCar.CarImage);
+            }
         }
         public void BackClick(object sender, RoutedEventArgs args)
         {

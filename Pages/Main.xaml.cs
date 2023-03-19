@@ -78,6 +78,11 @@ namespace CarRent.Pages
                 }
                 
             }
+            if (MainWindow.CurrentUser.UserStatus == "admin")
+            {
+                parrent2.Children.Add(new CustomItems.AddButton(mainWindow, "Cars"));
+            }
+            
         }
         public void ShowRentsList(object sender, RoutedEventArgs args)
         {
@@ -85,6 +90,10 @@ namespace CarRent.Pages
             foreach (Classes.Rent curRent in mainWindow.RentsList)
             {
                 parrent2.Children.Add(new InfoItems.RentItem(mainWindow,curRent,this));
+            }
+            if (MainWindow.CurrentUser.UserStatus == "admin")
+            {
+                parrent2.Children.Add(new CustomItems.AddButton(mainWindow, "Rents"));
             }
         }
 

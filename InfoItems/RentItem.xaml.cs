@@ -23,22 +23,39 @@ namespace CarRent.InfoItems
         public RentItem(MainWindow mainWindow,Classes.Rent curRent,Page parrentPage)
         {
             InitializeComponent();
+
             foreach (Classes.Car curCar in mainWindow.CarsList)
             {
                 if (curCar.idCar.ToString() == curRent.idCar)
                 {
-                        Car.Content = curCar.CarManufacturer + " " + curCar.CarModel;
-                        CarImage.Source = MainWindow.Base64StringToBitMap(curCar.CarImage);
+                    Car.Content = curCar.CarManufacturer + " " + curCar.CarModel;
+                    try
+                    {
+                        CarImage.Source = MainWindow.Base64StringToBitMap(mainWindow,curCar.CarImage);
+                    }
+                    catch { }
+                        
                 }
             }
-            foreach (Classes.User curUser in mainWindow.UsersList)
+            try
             {
-                if (curUser.idUser.ToString() == curRent.idClients)
+                for (int i = 0; i < mainWindow.UsersList.Count; i++) /*(Classes.User curUser in mainWindow.UsersList)*/
                 {
-                    User.Content = curUser.UserName;
-                    UserImage.Source = MainWindow.Base64StringToBitMap(curUser.UserImage);
+
+                    if (mainWindow.UsersList[i].idUser.ToString() == curRent.idClients)
+                    {
+                        User.Content = mainWindow.UsersList[i].UserName;
+                        try
+                        {
+                            UserImage.Source = MainWindow.Base64StringToBitMap(mainWindow,mainWindow.UsersList[i].UserImage);
+                        }
+                        catch { }
+
+                    }
                 }
             }
+            catch { }
+            
             Date.Content = curRent.StartDate.ToString() + " - " + curRent.EndDate.ToString();
         }
         private void parrent_MouseDown(object sender, MouseButtonEventArgs e)

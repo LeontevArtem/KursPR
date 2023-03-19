@@ -108,6 +108,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CustomItems\AddButton.xaml.cs">
+      <DependentUpon>AddButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InfoItems\CarItem.xaml.cs">
       <DependentUpon>CarItem.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
     <Compile Include="Windows\ErrorsWindow.xaml.cs">
       <DependentUpon>ErrorsWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="CustomItems\AddButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InfoItems\CarItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -240,6 +247,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\plus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

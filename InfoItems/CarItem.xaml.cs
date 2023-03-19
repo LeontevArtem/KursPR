@@ -35,7 +35,7 @@ namespace CarRent.InfoItems
                 carName.Content = curCar.CarManufacturer + " " + curCar.CarModel;
                 carColor.Content = curCar.CarColor;
                 carYear.Content = curCar.CarRentPrice + " руб./день";
-                carImage.Source = MainWindow.Base64StringToBitMap(curCar.CarImage);
+                carImage.Source = MainWindow.Base64StringToBitMap(mainWindow,curCar.CarImage);
                 carStatus.Content = curCar.CarStatus;   
                 this.curCar = curCar;
             }
@@ -46,7 +46,7 @@ namespace CarRent.InfoItems
         }
         private void parrent_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            mainWindow.OpenPage(mainWindow,new Pages.CarDetailedInfo(mainWindow,parrentPage));
+            mainWindow.OpenPage(mainWindow,new Pages.CarDetailedInfo(mainWindow,parrentPage,curCar));
         }
     }
 }
