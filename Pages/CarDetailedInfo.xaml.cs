@@ -75,11 +75,29 @@ namespace CarRent.Pages
             WpfControlLibrary1.CustomButton1 AddEditButton = new WpfControlLibrary1.CustomButton1(mode);
             AddEditButton.VerticalAlignment = VerticalAlignment.Top;
             AddEditButton.HorizontalAlignment = HorizontalAlignment.Left;
-            AddEditButton.Margin = new Thickness(15,280,0,0);
+            AddEditButton.Margin = new Thickness(15,315,0,0);
             AddEditButton.Width = 200;
             AddEditButton.Height = 30;
             AddEditButton.MouseDown += delegate { AddEditButtonClick(); };
             parrent.Children.Add(AddEditButton);
+
+            WpfControlLibrary1.CustomButton1 RentButton = new WpfControlLibrary1.CustomButton1("Арендовать");
+            RentButton.VerticalAlignment = VerticalAlignment.Top;
+            RentButton.HorizontalAlignment = HorizontalAlignment.Left;
+            RentButton.Margin = new Thickness(15, 275, 0, 0);
+            RentButton.Width = 200;
+            RentButton.Height = 30;
+            RentButton.MouseDown += delegate { RentButtonClick(); };
+            parrent.Children.Add(RentButton);
+
+            WpfControlLibrary1.CustomButton1 DeleteButton = new WpfControlLibrary1.CustomButton1("Удалить");
+            DeleteButton.VerticalAlignment = VerticalAlignment.Top;
+            DeleteButton.HorizontalAlignment = HorizontalAlignment.Left;
+            DeleteButton.Margin = new Thickness(15, 355, 0, 0);
+            DeleteButton.Width = 200;
+            DeleteButton.Height = 30;
+            DeleteButton.MouseDown += delegate { DeleteButtonClick(); };
+            parrent.Children.Add(DeleteButton);
 
             CarManufacturer.VerticalAlignment= VerticalAlignment.Top;
             CarManufacturer.Margin = new Thickness(170,10,10,0);
@@ -125,6 +143,20 @@ namespace CarRent.Pages
                 Image.SetImage(curCar.CarImage);
                 this.curCar = curCar;
             }
+            if (MainWindow.CurrentUser.UserStatus == "user")
+            {
+                CarManufacturer.BlockEdit();
+                CarModel.BlockEdit();
+                CarColor.BlockEdit();
+                CarPresentationYear.BlockEdit();
+                CarCategory.BlockEdit();
+                CarPrice.BlockEdit();
+                CarDescription.IsReadOnly = true;
+                CarRegNumber.BlockEdit();
+                Image.HideButton();
+                AddEditButton.Visibility = Visibility.Collapsed;
+                DeleteButton.Visibility = Visibility.Collapsed;
+            }
         }
         public void BackClick(object sender, RoutedEventArgs args)
         {
@@ -152,6 +184,21 @@ namespace CarRent.Pages
                 Classes.Car.LoadCars(mainWindow);
                 mainWindow.OpenPage(mainWindow, new Pages.Main(mainWindow));
             }
+        }
+        public void DeleteButtonClick()
+        {
+            MessageBoxResult res = MessageBox.Show("Вы действительно хотите удалить машину?","Предупреждение",MessageBoxButton.YesNo);
+            if(res == MessageBoxResult.Yes)
+            {
+                Classes.Car.Delete(mainWindow, curCar.idCar);
+                Classes.Car.LoadCars(mainWindow);
+                mainWindow.OpenPage(mainWindow, new Pages.Main(mainWindow));
+            }
+            
+        }
+        public void RentButtonClick()
+        {
+
         }
         public string StringFromRichTextBox(RichTextBox rtb)
         {
