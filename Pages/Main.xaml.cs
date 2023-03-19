@@ -52,10 +52,6 @@ namespace CarRent.Pages
             RentsList.Margin = new Thickness(10, 90, 10, 0);
             SidePanel1.AddChildren(RentsList);
 
-
-
-
-            OpenPage(this,new Pages.ContentPages.CarsPage(mainWindow,this));
         }
         public void ShowErrorsJournal(object sender, RoutedEventArgs args)
         {
@@ -64,29 +60,12 @@ namespace CarRent.Pages
         }
         public void ShowCarsList(object sender, RoutedEventArgs args)
         {
-            OpenPage(this,new Pages.ContentPages.CarsPage(mainWindow,this));
-        }
-        public void OpenPage(Main main, Page ToPage)
-        {
-
-            DoubleAnimation opgrid = new DoubleAnimation();
-            opgrid.From = 1;
-            opgrid.To = 0;
-            opgrid.Duration = TimeSpan.FromSeconds(0.1);
-            opgrid.Completed += delegate
+            parrent2.Children.Clear();
+            foreach (Classes.Car curCar in mainWindow.CarsList)
             {
-                Classes.Car.LoadCars(mainWindow);
-                Classes.Rent.LoadRents(mainWindow);
-                Classes.User.LoadUsers(mainWindow);
-                MainPageFrame.Navigate(ToPage);
-                DoubleAnimation opgrid2 = new DoubleAnimation();
-                opgrid2.From = 0;
-                opgrid2.To = 1;
-                opgrid2.Duration = TimeSpan.FromSeconds(0.1);
-                MainPageFrame.BeginAnimation(Frame.OpacityProperty, opgrid2);
-
-            };
-            MainPageFrame.BeginAnimation(Frame.OpacityProperty, opgrid);
+                parrent2.Children.Add(new InfoItems.CarItem(mainWindow,curCar,this));
+            }
         }
+
     }
 }
