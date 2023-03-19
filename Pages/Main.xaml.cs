@@ -53,6 +53,14 @@ namespace CarRent.Pages
             RentsList.Margin = new Thickness(10, 90, 10, 0);
             SidePanel1.AddChildren(RentsList);
 
+            WpfControlLibrary1.CustomButton1 UsersList = new WpfControlLibrary1.CustomButton1("Список пользователей");
+            UsersList.SetFontSize(12);
+            UsersList.MouseDown += ShowUsersList;
+            UsersList.Width = 170;
+            UsersList.VerticalAlignment = VerticalAlignment.Top;
+            UsersList.Margin = new Thickness(10, 130, 10, 0);
+            SidePanel1.AddChildren(UsersList);
+
             ShowCarsList(null,null);
 
         }
@@ -97,6 +105,20 @@ namespace CarRent.Pages
             if (MainWindow.CurrentUser.UserStatus == "admin")
             {
                 var button = new CustomItems.AddButton(mainWindow, "Rents");
+                button.MouseDown += AddButtonClick;
+                parrent2.Children.Add(button);
+            }
+        }
+        public void ShowUsersList(object sender, RoutedEventArgs args)
+        {
+            parrent2.Children.Clear();
+            foreach (Classes.User curUser in mainWindow.UsersList)
+            {
+                parrent2.Children.Add(new InfoItems.UserItem(mainWindow, curUser, this));
+            }
+            if (MainWindow.CurrentUser.UserStatus == "admin")
+            {
+                var button = new CustomItems.AddButton(mainWindow, "Users");
                 button.MouseDown += AddButtonClick;
                 parrent2.Children.Add(button);
             }

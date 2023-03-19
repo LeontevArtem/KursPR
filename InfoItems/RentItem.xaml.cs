@@ -20,9 +20,17 @@ namespace CarRent.InfoItems
     /// </summary>
     public partial class RentItem : UserControl
     {
+        MainWindow mainWindow;
+        Page parrentPage;
+        Classes.Car curCar;
+        Classes.Rent curRent;
         public RentItem(MainWindow mainWindow,Classes.Rent curRent,Page parrentPage)
         {
             InitializeComponent();
+
+            this.mainWindow = mainWindow;
+            this.parrentPage = parrentPage;
+            this.curRent = curRent;
 
             foreach (Classes.Car curCar in mainWindow.CarsList)
             {
@@ -32,6 +40,7 @@ namespace CarRent.InfoItems
                     try
                     {
                         CarImage.Source = MainWindow.Base64StringToBitMap(mainWindow,curCar.CarImage);
+                        this.curCar= curCar;
                     }
                     catch { }
                         
@@ -60,7 +69,7 @@ namespace CarRent.InfoItems
         }
         private void parrent_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
+            mainWindow.OpenPage(mainWindow,new Pages.RentPage(mainWindow,curRent,parrentPage));
         }
     }
 }

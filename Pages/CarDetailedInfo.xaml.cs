@@ -198,7 +198,7 @@ namespace CarRent.Pages
         }
         public void RentButtonClick()
         {
-
+            
         }
         public string StringFromRichTextBox(RichTextBox rtb)
         {

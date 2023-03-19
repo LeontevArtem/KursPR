@@ -120,8 +120,14 @@
     <Compile Include="InfoItems\RentItem.xaml.cs">
       <DependentUpon>RentItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InfoItems\UserItem.xaml.cs">
+      <DependentUpon>UserItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CarDetailedInfo.xaml.cs">
       <DependentUpon>CarDetailedInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RentPage.xaml.cs">
+      <DependentUpon>RentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\ErrorsWindow.xaml.cs">
       <DependentUpon>ErrorsWindow.xaml</DependentUpon>
@@ -139,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="InfoItems\RentItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InfoItems\UserItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
