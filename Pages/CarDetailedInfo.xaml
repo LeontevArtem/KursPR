@@ -25,17 +25,13 @@
                                 <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Модель машины:" Margin="10,50,0,0" FontSize="16" FontWeight="Bold"/>
                                 <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Цвет машины:" Margin="10,90,0,0" FontSize="16" FontWeight="Bold"/>
                                 <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Год презентации:" Margin="10,130,0,0" FontSize="16" FontWeight="Bold"/>
-                                <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Подробная информация:" Margin="10,170,0,0" FontSize="16" FontWeight="Bold"/>
-                                <ScrollViewer VerticalAlignment="Top" Height="100" Margin="10,210,10,0" VerticalScrollBarVisibility="Auto">
-                                    <StackPanel>
-                                        <Grid>
-                                            <TextBlock x:Name="CarDescription"  Text="Подробная информация"   FontSize="16" TextWrapping="Wrap"/>
-                                        </Grid>
-                                        
-                                    </StackPanel>
-                                    
-                                </ScrollViewer>
-                                
+                                <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Подробная информация:"  Margin="10,290,0,0"  FontSize="16" FontWeight="Bold"/>
+                                <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Категория:" Margin="10,170,0,0"  FontSize="16" FontWeight="Bold"/>
+                                <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Стоимость аренды:"  Margin="10,210,0,0" FontSize="16" FontWeight="Bold"/>
+                                <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Рег. Номер:"  Margin="10,250,0,0" FontSize="16" FontWeight="Bold"/>
+                                <Grid VerticalAlignment="Top" Height="100" Margin="10,330,10,0">
+                                    <RichTextBox x:Name="CarDescription" FontSize="16" />
+                                </Grid>
                             </Grid>
                         </StackPanel>
                     </ScrollViewer>

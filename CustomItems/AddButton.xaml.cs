@@ -20,14 +20,20 @@ namespace CarRent.CustomItems
     /// </summary>
     public partial class AddButton : UserControl
     {
+        public string Class;
         public AddButton(MainWindow mainWindow,string Class)
         {
             InitializeComponent();
-            Add.MouseDown += delegate { AddClick(); };
+            this.Class = Class;
+            //Add.MouseDown += delegate { AddClick(); };
         }
         public void AddClick()
         {
 
+        }
+        public string GetClass()
+        {
+            return Class;
         }
     }
 }

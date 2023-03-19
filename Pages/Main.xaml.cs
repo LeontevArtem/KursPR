@@ -61,6 +61,7 @@ namespace CarRent.Pages
             Windows.ErrorsWindow ErrorsJournal = new Windows.ErrorsWindow(mainWindow);
             ErrorsJournal.ShowDialog();
         }
+
         public void ShowCarsList(object sender, RoutedEventArgs args)
         {
             parrent2.Children.Clear();
@@ -80,7 +81,9 @@ namespace CarRent.Pages
             }
             if (MainWindow.CurrentUser.UserStatus == "admin")
             {
-                parrent2.Children.Add(new CustomItems.AddButton(mainWindow, "Cars"));
+                var button = new CustomItems.AddButton(mainWindow, "Cars");
+                button.MouseDown += AddButtonClick;
+                parrent2.Children.Add(button);
             }
             
         }
@@ -93,9 +96,22 @@ namespace CarRent.Pages
             }
             if (MainWindow.CurrentUser.UserStatus == "admin")
             {
-                parrent2.Children.Add(new CustomItems.AddButton(mainWindow, "Rents"));
+                var button = new CustomItems.AddButton(mainWindow, "Rents");
+                button.MouseDown += AddButtonClick;
+                parrent2.Children.Add(button);
             }
         }
+        public void AddButtonClick(object sender, RoutedEventArgs args)
+        {
+            CustomItems.AddButton button = sender as CustomItems.AddButton;
+            if (button.GetClass()=="Cars")
+            {
+                mainWindow.OpenPage(mainWindow,new Pages.CarDetailedInfo(mainWindow,this,null,CarDetailedInfo.PageMode.Add));
+            }
+            else if (button.GetClass() == "Rents")
+            {
 
+            }
+        }
     }
 }
