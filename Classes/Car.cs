@@ -21,8 +21,9 @@ namespace CarRent.Classes
         public double CarRentPrice { get; set; }
         public string CarNumber { get; set; }
         public string CarCategory { get; set; }
+        public string CarStatus { get; set; }
 
-        public Car(int idCar, string CarManufacturer, string CarModel, string CarColor, int CarPresentationYear, string CarDetailedInfo, string CarImage, double CarRentPrice, string CarNumber, string CarCategory)
+        public Car(int idCar, string CarManufacturer, string CarModel, string CarColor, int CarPresentationYear, string CarDetailedInfo, string CarImage, double CarRentPrice, string CarNumber, string CarCategory, string CarStatus)
         {
             this.idCar = idCar;
             this.CarManufacturer = CarManufacturer;
@@ -34,7 +35,7 @@ namespace CarRent.Classes
             this.CarRentPrice = CarRentPrice;
             this.CarNumber = CarNumber;
             this.CarCategory = CarCategory;
-            //var exc = Convert.ToDateTime(CarModel);
+            this.CarStatus = CarStatus;
         }
         public static void Add(MainWindow mainWindow,string CarManufacturer,string CarModel,string CarColor,string CarYear,string CarDetailedInfo,string CarImage,string CarPrice,string CarRegNumber,string CarCategory)
         {
@@ -48,7 +49,6 @@ namespace CarRent.Classes
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message, "Ошибка (Добавление автомобиля)", MessageBoxButton.OK, MessageBoxImage.Error);
                 mainWindow.Errors.Add(new Classes.ErrorMessage(DateTime.Now,ex, "Добавление автомобилей"));
             }
         }
@@ -63,7 +63,7 @@ namespace CarRent.Classes
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message, "Ошибка (Добавление автомобиля)", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 mainWindow.Errors.Add(new Classes.ErrorMessage(DateTime.Now, ex, "Изменение автомобилей"));
             }
         }
@@ -78,7 +78,7 @@ namespace CarRent.Classes
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message, "Ошибка (Добавление автомобиля)", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 mainWindow.Errors.Add(new Classes.ErrorMessage(DateTime.Now, ex, "Удаление автомобилей"));
             }
         }
@@ -94,7 +94,7 @@ namespace CarRent.Classes
                 {
                     try
                     {
-                        mainWindow.CarsList.Add(new Classes.Car(carQuery.GetInt32(0), carQuery.GetString(1), carQuery.GetString(2), carQuery.GetString(3), carQuery.GetInt32(4), carQuery.GetString(5), carQuery.GetString(6), carQuery.GetDouble(7), carQuery.GetString(8), carQuery.GetString(9)));
+                        mainWindow.CarsList.Add(new Classes.Car(carQuery.GetInt32(0), carQuery.GetString(1), carQuery.GetString(2), carQuery.GetString(3), carQuery.GetInt32(4), carQuery.GetString(5), carQuery.GetString(6), carQuery.GetDouble(7), carQuery.GetString(8), carQuery.GetString(9),carQuery.GetString(10)));
                     }
                     catch(Exception ex) { mainWindow.Errors.Add(new Classes.ErrorMessage(DateTime.Now, ex, "Загрузка автомобилей")); }
                     

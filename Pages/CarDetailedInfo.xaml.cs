@@ -33,12 +33,26 @@ namespace CarRent.Pages
             Back.VerticalAlignment = VerticalAlignment.Center;
             Back.HorizontalAlignment = HorizontalAlignment.Left;
             Back.Margin = new Thickness(5);
-            Back.MouseDown += BaclClick;
+            Back.MouseDown += BackClick;
             top.Children.Add( Back );
+
+            WpfControlLibrary1.CustomButton1 GoToMain = new WpfControlLibrary1.CustomButton1("На главную");
+            GoToMain.VerticalAlignment = VerticalAlignment.Center;
+            GoToMain.HorizontalAlignment = HorizontalAlignment.Left;
+            GoToMain.Margin = new Thickness(40,5,0,5);
+            GoToMain.Width= 100;
+            GoToMain.Height= 40;
+            GoToMain.SetFontSize(12);
+            GoToMain.MouseDown += GoToMainClick;
+            top.Children.Add(GoToMain);
         }
-        public void BaclClick(object sender, RoutedEventArgs args)
+        public void BackClick(object sender, RoutedEventArgs args)
         {
             mainWindow.OpenPage(mainWindow,parrentPage);
+        }
+        public void GoToMainClick(object sender, RoutedEventArgs args)
+        {
+            mainWindow.OpenPage(mainWindow, new Pages.Main(mainWindow));
         }
     }
 }

@@ -13,7 +13,7 @@
             <ImageBrush ImageSource="/Images/car2blur.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid Height="40" VerticalAlignment="Top" Background="White" x:Name="top">
-            <Label Content="Информация о машине" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold" Margin="40,0,0,0"/>
+            <Label Content="Информация о машине" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold" Margin="140,0,0,0"/>
         </Grid>
         <Grid Margin="0,40,0,0" x:Name="parrent">
             <Frame x:Name="MainPageFrame"/>
