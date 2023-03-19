@@ -89,7 +89,7 @@ namespace CarRent.Classes
                 mainWindow.CarsList.Clear();
                 MySqlConnection mySqlConnection = new MySqlConnection(MainWindow.GetConnectionString());
                 mySqlConnection.Open();
-                MySqlDataReader carQuery = Connection.Query("SELECT * FROM KursBD.Cars;", mySqlConnection);
+                MySqlDataReader carQuery = Connection.Query("SELECT * FROM KursBD.Cars ORDER BY CarStatus;", mySqlConnection);
                 while (carQuery.Read())
                 {
                     try

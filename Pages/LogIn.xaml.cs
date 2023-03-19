@@ -90,6 +90,7 @@ namespace CarRent.Pages
                     MainWindow.CurrentUser.UserMail = curUser.UserMail;
                     MainWindow.CurrentUser.UserDateOfBitrh = curUser.UserDateOfBitrh;
                     MainWindow.CurrentUser.UserDriverLicense = curUser.UserDriverLicense;
+                    MainWindow.CurrentUser.UserImage = curUser.UserImage;
                     IsLoginedIn = true;
                 }
             }

@@ -36,7 +36,7 @@ namespace CarRent.InfoItems
                 carColor.Content = curCar.CarColor;
                 carYear.Content = curCar.CarRentPrice + " руб./день";
                 carImage.Source = MainWindow.Base64StringToBitMap(curCar.CarImage);
-
+                carStatus.Content = curCar.CarStatus;   
                 this.curCar = curCar;
             }
             catch
@@ -46,8 +46,6 @@ namespace CarRent.InfoItems
         }
         private void parrent_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
-
             mainWindow.OpenPage(mainWindow,new Pages.CarDetailedInfo(mainWindow,parrentPage));
         }
     }

@@ -47,7 +47,7 @@ namespace CarRent.Pages
             SidePanel1.AddChildren(CarsList);
 
             WpfControlLibrary1.CustomButton1 RentsList = new WpfControlLibrary1.CustomButton1("Список аренд");
-            //RentsList.MouseDown += ShowCarsList;
+            RentsList.MouseDown += ShowRentsList;
             RentsList.Width = 170;
             RentsList.VerticalAlignment = VerticalAlignment.Top;
             RentsList.Margin = new Thickness(10, 90, 10, 0);
@@ -63,7 +63,6 @@ namespace CarRent.Pages
         }
         public void ShowCarsList(object sender, RoutedEventArgs args)
         {
-
             parrent2.Children.Clear();
             foreach (Classes.Car curCar in mainWindow.CarsList)
             {
@@ -71,7 +70,21 @@ namespace CarRent.Pages
                 {
                     parrent2.Children.Add(new InfoItems.CarItem(mainWindow, curCar, this));
                 }
+                else if(curCar.CarStatus == "rented" && MainWindow.CurrentUser.UserStatus == "user")
+                {
+                    var item = new InfoItems.CarItem(mainWindow, curCar, this);
+                    item.IsEnabled = false;
+                    parrent2.Children.Add(item);
+                }
                 
+            }
+        }
+        public void ShowRentsList(object sender, RoutedEventArgs args)
+        {
+            parrent2.Children.Clear();
+            foreach (Classes.Rent curRent in mainWindow.RentsList)
+            {
+                parrent2.Children.Add(new InfoItems.RentItem(mainWindow,curRent,this));
             }
         }
 

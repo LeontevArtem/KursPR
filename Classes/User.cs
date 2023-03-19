@@ -20,8 +20,9 @@ namespace CarRent.Classes
         public string UserDateOfBitrh { get; set; }
         public string UserMail { get; set; }
         public string UserDriverLicense { get; set; }
+        public string UserImage { get; set; }
 
-        public User(int idUser, string UserLogin, string UserPassword, string UserStatus, string UserName, string UserPhone, string UserPassport, string UserDateOfBitrh, string UserMail, string UserDriverLicense)
+        public User(int idUser, string UserLogin, string UserPassword, string UserStatus, string UserName, string UserPhone, string UserPassport, string UserDateOfBitrh, string UserMail, string UserDriverLicense, string UserImage)
         {
             this.idUser = idUser;
             this.UserLogin = UserLogin;
@@ -33,6 +34,7 @@ namespace CarRent.Classes
             this.UserDateOfBitrh = UserDateOfBitrh;
             this.UserMail = UserMail;
             this.UserDriverLicense = UserDriverLicense;
+            this.UserImage = UserImage;
         }
         public static void Add(MainWindow mainWindow,string UserLogin,string UserPassword,string UserStatus,string UserName,string UserPhone,string UserPassport,string UserDateOfBirth,string UserMail,string UserDriverLicense)
         {
@@ -88,7 +90,7 @@ namespace CarRent.Classes
                 {
                     try
                     {
-                        mainWindow.UsersList.Add(new Classes.User(userQuery.GetInt32(0), userQuery.GetString(1), userQuery.GetString(2), userQuery.GetString(3), userQuery.GetString(4), userQuery.GetString(5), userQuery.GetString(6), userQuery.GetString(7), userQuery.GetString(8), userQuery.GetString(9)));
+                        mainWindow.UsersList.Add(new Classes.User(userQuery.GetInt32(0), userQuery.GetString(1), userQuery.GetString(2), userQuery.GetString(3), userQuery.GetString(4), userQuery.GetString(5), userQuery.GetString(6), userQuery.GetString(7), userQuery.GetString(8), userQuery.GetString(9),userQuery.GetString(10)));
                     }
                     catch (Exception ex) { mainWindow.Errors.Add(new Classes.ErrorMessage(DateTime.Now, ex, "Загрузка пользователей")); }
                     

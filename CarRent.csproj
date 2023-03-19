@@ -114,6 +114,9 @@
     <Compile Include="InfoItems\ErrorItem.xaml.cs">
       <DependentUpon>ErrorItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InfoItems\RentItem.xaml.cs">
+      <DependentUpon>RentItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CarDetailedInfo.xaml.cs">
       <DependentUpon>CarDetailedInfo.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="InfoItems\ErrorItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InfoItems\RentItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,13 +233,13 @@
     <Resource Include="Images\warning.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="InfoItems\car2blur.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\sedan-car-model.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -39,7 +39,7 @@ namespace CarRent
             OpenPage(this,new Pages.LogIn(this));
         }
         DispatcherTimer Timer = new DispatcherTimer();
-        public static Classes.User CurrentUser = new Classes.User(0,"","","","","","","","","");
+        public static Classes.User CurrentUser = new Classes.User(0,"","","","","","","","","","");
 
         public List<Classes.ErrorMessage> Errors = new List<Classes.ErrorMessage>();
         public List<Classes.User> UsersList = new List<Classes.User>();
