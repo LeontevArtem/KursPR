@@ -1,0 +1,33 @@
+﻿<Page x:Class="CarRent.Pages.UserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarRent.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserPage">
+
+    <Grid Margin="0,0,0,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/car2blur.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid Height="40" VerticalAlignment="Top" Background="White" x:Name="top">
+            <Label Content="Информация о пользователе" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold" Margin="140,0,0,0"/>
+        </Grid>
+        <Border Background="White" CornerRadius="10" Margin="15,55,15,15" >
+            <Grid x:Name="parrent2">
+                <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" >
+                    <Grid >
+                        <StackPanel >
+                            <Grid x:Name="parrent" >
+                                <Label x:Name="user" Content="User" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="420,90,10,0" FontSize="16" FontWeight="Bold"/>
+                                <Label x:Name="admin" Content="Admin" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="570,90,10,0" FontSize="16" FontWeight="Bold" IsEnabled="False"/>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

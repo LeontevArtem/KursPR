@@ -13,16 +13,12 @@
             <Grid  Margin="0,0,0,0" >
                 <Border CornerRadius="10" Background="#E3E3E3" Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="150">
                     <Image x:Name="CarImage" Margin="0,0,0,0" Source="/Images/car2.jpg"  MaxHeight="150" MaxWidth="150">
-                        <Image.OpacityMask>
-                            <ImageBrush ImageSource="/Images/car2.jpg"/>
-                        </Image.OpacityMask>
+                        
                     </Image>
                 </Border>
                 <Border CornerRadius="10" Background="#E3E3E3" Margin="180,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="150">
                     <Image x:Name="UserImage" Margin="0,0,0,0" Source="/Images/user.png"  MaxHeight="150" MaxWidth="150">
-                        <Image.OpacityMask>
-                            <ImageBrush ImageSource="/Images/user.png"/>
-                        </Image.OpacityMask>
+                        
                     </Image>
                 </Border>
                 <Label x:Name="Car" Content="Car"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="340,20,0,0" FontSize="18" FontWeight="Bold"/>

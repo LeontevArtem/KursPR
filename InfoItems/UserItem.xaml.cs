@@ -23,30 +23,29 @@ namespace CarRent.InfoItems
     {
         MainWindow mainWindow;
         Classes.User curUser;
+        Page parrentPage;
         public UserItem(MainWindow mainWindow,Classes.User curUser,Page parrentPage)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
             this.curUser = curUser;
-            UserName.Content = curUser.UserName;
-            UserMail.Content = curUser.UserMail;
-            UserPhone.Content = curUser.UserPhone;
+            this.parrentPage = parrentPage;
             try
             {
-                for (int i = 0; i < mainWindow.UsersList.Count; i++) /*(Classes.User curUser in mainWindow.UsersList)*/
-                {
-                        try
-                        {
-                            UserImage.Source = MainWindow.Base64StringToBitMap(mainWindow, mainWindow.UsersList[i].UserImage);
-                        }
-                        catch { }
-                }
+                UserName.Content = curUser.UserName;
+                UserMail.Content = curUser.UserMail;
+                UserPhone.Content = curUser.UserPhone;
+            }
+            catch { }
+            try
+            {
+                UserImage.Source = MainWindow.Base64StringToBitMap(mainWindow, curUser.UserImage);
             }
             catch { }
         }
         private void parrent_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
+            mainWindow.OpenPage(mainWindow,new Pages.UserPage(mainWindow,parrentPage,curUser));
         }
         public Classes.User ReturnUser()
         {

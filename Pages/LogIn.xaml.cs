@@ -58,6 +58,7 @@ namespace CarRent.Pages
             SignInButton.VerticalAlignment = VerticalAlignment.Top;
             SignInButton.HorizontalAlignment = HorizontalAlignment.Right;
             SignInButton.Margin = new Thickness(0, 450, 50, 0);
+            SignInButton.MouseDown += SignInClick;
             parrent.Children.Add(SignInButton);
 
             WpfControlLibrary1.CustomButton1 ConnectionButton = new WpfControlLibrary1.CustomButton1("Настройка подключения");
@@ -68,6 +69,10 @@ namespace CarRent.Pages
             ConnectionButton.Margin = new Thickness(50, 450, 0, 0);
             parrent.Children.Add(ConnectionButton);
 
+        }
+        public void SignInClick(object sender, RoutedEventArgs args)
+        {
+            mainWindow.OpenPage(mainWindow,new Pages.UserPage(mainWindow,this));
         }
         public void LogInClick(object sender,RoutedEventArgs args)
         {

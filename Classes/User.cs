@@ -36,13 +36,13 @@ namespace CarRent.Classes
             this.UserDriverLicense = UserDriverLicense;
             this.UserImage = UserImage;
         }
-        public static void Add(MainWindow mainWindow,string UserLogin,string UserPassword,string UserStatus,string UserName,string UserPhone,string UserPassport,string UserDateOfBirth,string UserMail,string UserDriverLicense)
+        public static void Add(MainWindow mainWindow,string UserLogin,string UserPassword,string UserStatus,string UserName,string UserPhone,string UserPassport,string UserDateOfBirth,string UserMail,string UserDriverLicense,string UserImage)
         {
             try
             {
                 MySqlConnection mySqlConnection = new MySqlConnection(MainWindow.GetConnectionString());
                 mySqlConnection.Open();
-                MySqlDataReader addCarQuery = Connection.Query($"INSERT INTO `KursBD`.`users` (`UserLogin`, `UserPassword`, `UserStatus`, `UserName`, `UserPhone`, `UserPassport`, `UserDateOfBirth`, `UserMail`, `UserDriverLicense`) VALUES ('{UserLogin}', '{UserPassword}', '{UserStatus}', '{UserName}', '{UserPhone}', '{UserPassport}', '{UserDateOfBirth}', '{UserMail}', '{UserDriverLicense}');", mySqlConnection);
+                MySqlDataReader userQuery = Connection.Query($"INSERT INTO `KursBD`.`users` (`UserLogin`, `UserPassword`, `UserStatus`, `UserName`, `UserPhone`, `UserPassport`, `UserDateOfBirth`, `UserMail`, `UserDriverLicense`,`UserImage`) VALUES ('{UserLogin}', '{UserPassword}', '{UserStatus}', '{UserName}', '{UserPhone}', '{UserPassport}', '{UserDateOfBirth}', '{UserMail}', '{UserDriverLicense}','{UserImage}');", mySqlConnection);
                 mySqlConnection.Close();
             }
             catch(Exception ex) 
@@ -50,13 +50,13 @@ namespace CarRent.Classes
                 mainWindow.Errors.Add(new Classes.ErrorMessage(DateTime.Now, ex, "Добавление пользователей"));
             }
         }
-        public static void Edit(MainWindow mainWindow,int id, string UserLogin, string UserPassword, string UserStatus, string UserName, string UserPhone, string UserPassport, string UserDateOfBirth, string UserMail, string UserDriverLicense)
+        public static void Edit(MainWindow mainWindow,int id, string UserLogin, string UserPassword, string UserStatus, string UserName, string UserPhone, string UserPassport, string UserDateOfBirth, string UserMail, string UserDriverLicense, string UserImage)
         {
             try
             {
                 MySqlConnection mySqlConnection = new MySqlConnection(MainWindow.GetConnectionString());
                 mySqlConnection.Open();
-                MySqlDataReader addCarQuery = Connection.Query($"UPDATE `kursbd`.`users` SET `UserLogin` = '{UserLogin}', `UserPassword` = '{UserPassword}', `UserStatus` = '{UserStatus}', `UserName` = '{UserName}', `UserPhone` = '{UserPhone}', `UserPassport` = '{UserPassport}', `UserDateOfBirth` = '{UserDateOfBirth}', `UserMail` = '{UserMail}', `UserDriverLicense` = '{UserDriverLicense}' WHERE (`idUsers` = '{id}');", mySqlConnection);
+                MySqlDataReader userQuery = Connection.Query($"UPDATE `kursbd`.`users` SET `UserLogin` = '{UserLogin}', `UserPassword` = '{UserPassword}', `UserStatus` = '{UserStatus}', `UserName` = '{UserName}', `UserPhone` = '{UserPhone}', `UserPassport` = '{UserPassport}', `UserDateOfBirth` = '{UserDateOfBirth}', `UserMail` = '{UserMail}', `UserDriverLicense` = '{UserDriverLicense}',`UserImage` = '{UserImage}' WHERE (`idUsers` = '{id}');", mySqlConnection);
                 mySqlConnection.Close();
             }
             catch (Exception ex)
@@ -70,7 +70,7 @@ namespace CarRent.Classes
             {
                 MySqlConnection mySqlConnection = new MySqlConnection(MainWindow.GetConnectionString());
                 mySqlConnection.Open();
-                MySqlDataReader addCarQuery = Connection.Query($"DELETE FROM `kursbd`.`users` WHERE (`idUsers` = '{id}');", mySqlConnection);
+                MySqlDataReader userQuery = Connection.Query($"DELETE FROM `kursbd`.`users` WHERE (`idUsers` = '{id}');", mySqlConnection);
                 mySqlConnection.Close();
             }
             catch (Exception ex)

@@ -232,7 +232,11 @@ namespace CarRent.Pages
                     Classes.Rent.Add(mainWindow, curUser.idUser, curCar.idCar, DateStart.SelectedDate.ToString().Split(' ')[0], DateEnd.SelectedDate.ToString().Split(' ')[0], ResultPrice.Content.ToString().Split(' ')[1]);
                     mainWindow.OpenPage(mainWindow, new Pages.Main(mainWindow));
                 }
-               
+                if (parrentPage is Pages.Main)
+                {
+                    var main = parrentPage as Pages.Main;
+                    main.ShowRentsList(null,null);
+                }
                 
                 
             }

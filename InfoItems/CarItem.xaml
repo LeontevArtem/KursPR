@@ -13,9 +13,8 @@
             <Grid  Margin="0,0,0,0" >
                 <Border CornerRadius="10" Background="#E3E3E3" Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="150">
                     <Image Margin="0,0,0,0" Source="/Images/car2.jpg" x:Name="carImage" MaxHeight="150" MaxWidth="150">
-                        <Image.OpacityMask>
-                            <ImageBrush ImageSource="/Images/car2blur.jpg"/>
-                        </Image.OpacityMask>
+                        
+                        
                     </Image>
                 </Border>
                 <Label x:Name="carName" Content="CarName"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="200,20,0,0" FontSize="18" FontWeight="Bold"/>
