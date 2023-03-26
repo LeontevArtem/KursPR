@@ -59,7 +59,9 @@ namespace CarRent
         }
         public void OpenPage(MainWindow mainWindow,Page ToPage)
         {
-
+            Classes.Car.LoadCars(this);
+            Classes.Rent.LoadRents(this);
+            Classes.User.LoadUsers(this);
             DoubleAnimation opgrid = new DoubleAnimation();
             opgrid.From = 1;
             opgrid.To = 0;

@@ -28,6 +28,15 @@ namespace CarRent.Pages
 
             this.mainWindow = mainWindow;
 
+            WpfControlLibrary1.CustomButton1 Exit = new WpfControlLibrary1.CustomButton1("Выйти");
+            Exit.MouseDown += LogOut;
+            Exit.Width = 100;
+            Exit.Height = 36;
+            Exit.VerticalAlignment = VerticalAlignment.Center;
+            Exit.HorizontalAlignment = HorizontalAlignment.Right;
+            Exit.Margin = new Thickness(0,0,2,0);
+            top.Children.Add(Exit);
+
             WpfControlLibrary1.SidePanel SidePanel1 = new WpfControlLibrary1.SidePanel(WpfControlLibrary1.SidePanel.PanelOrientation.left);
             parrent.Children.Add(SidePanel1);
 
@@ -64,6 +73,10 @@ namespace CarRent.Pages
             ShowCarsList(null,null);
 
         }
+        public void LogOut(object sender, RoutedEventArgs args)
+        {
+            mainWindow.OpenPage(mainWindow,new Pages.LogIn(mainWindow));
+        }
         public void ShowErrorsJournal(object sender, RoutedEventArgs args)
         {
             Windows.ErrorsWindow ErrorsJournal = new Windows.ErrorsWindow(mainWindow);
@@ -84,6 +97,10 @@ namespace CarRent.Pages
                     var item = new InfoItems.CarItem(mainWindow, curCar, this);
                     item.IsEnabled = false;
                     parrent2.Children.Add(item);
+                }
+                else
+                {
+                    parrent2.Children.Add(new InfoItems.CarItem(mainWindow, curCar, this));
                 }
                 
             }
@@ -132,7 +149,7 @@ namespace CarRent.Pages
             }
             else if (button.GetClass() == "Rents")
             {
-
+                mainWindow.OpenPage(mainWindow,new Pages.RentPage(mainWindow,null,this));
             }
         }
     }

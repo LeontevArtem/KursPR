@@ -22,10 +22,12 @@ namespace CarRent.InfoItems
     public partial class UserItem : UserControl
     {
         MainWindow mainWindow;
+        Classes.User curUser;
         public UserItem(MainWindow mainWindow,Classes.User curUser,Page parrentPage)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+            this.curUser = curUser;
             UserName.Content = curUser.UserName;
             UserMail.Content = curUser.UserMail;
             UserPhone.Content = curUser.UserPhone;
@@ -45,6 +47,14 @@ namespace CarRent.InfoItems
         private void parrent_MouseDown(object sender, MouseButtonEventArgs e)
         {
             
+        }
+        public Classes.User ReturnUser()
+        {
+            return curUser;
+        }
+        public void LockClick()
+        {
+            parrent.MouseDown -= parrent_MouseDown;
         }
     }
 }

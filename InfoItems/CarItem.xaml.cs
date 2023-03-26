@@ -48,5 +48,13 @@ namespace CarRent.InfoItems
         {
             mainWindow.OpenPage(mainWindow,new Pages.CarDetailedInfo(mainWindow,parrentPage,curCar));
         }
+        public Classes.Car ReturnCar()
+        {
+            return curCar;
+        }
+        public void LockClick()
+        {
+            parrent.MouseDown -= parrent_MouseDown;
+        }
     }
 }

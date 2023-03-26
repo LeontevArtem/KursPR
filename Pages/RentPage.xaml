@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RentPage">
 
-    <Grid>
+    <Grid Margin="0,0,0,0">
         <Grid.Background>
             <ImageBrush ImageSource="/Images/car2blur.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
@@ -19,9 +19,17 @@
             <ScrollViewer VerticalScrollBarVisibility="Hidden">
                 <StackPanel>
                     <Grid>
-                        <Grid x:Name="parrent1" Margin="0,0,350,0">
+                        <Grid  Margin="0,0,350,0">
                             <Label Content="Выбранная машина: " VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Margin="5"/>
+                            <Border VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,12.5,0,0" Width="20" Height="20" Panel.ZIndex="2" >
+                                <ComboBox x:Name="CarSelector"    BorderThickness="0" BorderBrush="white" Background="White"   SelectedIndex="0"/>
+                            </Border>
+                            <Grid x:Name="parrent11" Margin="0,0,0,0" VerticalAlignment="Top" Height="255"/>
                             <Label Content="Пользователь: " VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Margin="5,250,5,5"/>
+                            <Border VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,257.5,0,0" Width="20" Height="20" Panel.ZIndex="2" >
+                                <ComboBox x:Name="UserSelector"    BorderThickness="0" BorderBrush="white" Background="White"   SelectedIndex="0"/>
+                            </Border>
+                            <Grid x:Name="parrent12" Margin="0,250,0,0" VerticalAlignment="Top" Height="255"/>
                         </Grid>
                         <Grid x:Name="parrent2" HorizontalAlignment="Right"  Margin="0,0,10,0" Width="290">
                             <Label Content="Дата начала аренды:" VerticalAlignment="Top"  FontSize="16" FontWeight="Bold" Margin="5,5,5,5"/>

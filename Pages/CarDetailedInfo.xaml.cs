@@ -72,6 +72,7 @@ namespace CarRent.Pages
             
             if (pageMode == PageMode.Edit) mode = "Изменить";
             if (pageMode == PageMode.Add) mode = "Добавить";
+            
             WpfControlLibrary1.CustomButton1 AddEditButton = new WpfControlLibrary1.CustomButton1(mode);
             AddEditButton.VerticalAlignment = VerticalAlignment.Top;
             AddEditButton.HorizontalAlignment = HorizontalAlignment.Left;
@@ -79,6 +80,9 @@ namespace CarRent.Pages
             AddEditButton.Width = 200;
             AddEditButton.Height = 30;
             AddEditButton.MouseDown += delegate { AddEditButtonClick(); };
+
+            
+
             parrent.Children.Add(AddEditButton);
 
             WpfControlLibrary1.CustomButton1 RentButton = new WpfControlLibrary1.CustomButton1("Арендовать");
@@ -89,6 +93,8 @@ namespace CarRent.Pages
             RentButton.Height = 30;
             RentButton.MouseDown += delegate { RentButtonClick(); };
             parrent.Children.Add(RentButton);
+
+            if (parrentPage is Pages.RentPage) RentButton.Visibility = Visibility.Collapsed;
 
             WpfControlLibrary1.CustomButton1 DeleteButton = new WpfControlLibrary1.CustomButton1("Удалить");
             DeleteButton.VerticalAlignment = VerticalAlignment.Top;
@@ -198,7 +204,7 @@ namespace CarRent.Pages
         }
         public void RentButtonClick()
         {
-            
+            mainWindow.OpenPage(mainWindow,new Pages.RentPage(mainWindow,curCar,MainWindow.CurrentUser,this));
         }
         public string StringFromRichTextBox(RichTextBox rtb)
         {
